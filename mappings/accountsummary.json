@@ -6,9 +6,6 @@
   "response": {
     "status": 200,
     "fixedDelayMilliseconds": 2000,
-    "bodyFileName": "res.xml",
-    "headers": {
-      "Content-Type": "application/xml"
-    }
+    "bodyFileName": "res.xml"
   }
 }

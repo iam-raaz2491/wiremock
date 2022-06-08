@@ -31,7 +31,7 @@ docker pull rbillon59/wiremock-loadtest:2.30.1
 
 ##### Start a Wiremock container
 
-Default port is 8080 but you can change it with the ${PORT} environement variable (for the internal container service port)
+Default port is 8080 but you can change it with the ${PORT} environment variable (for the internal container service port)
 
 ```sh
 docker run -d --rm -p 8080:8080 -v "${PWD}/mappings":/home/wiremock/mappings rbillon59/wiremock-loadtest:2.30.1
@@ -50,6 +50,8 @@ Doing this you will spawn 5 instances of the mock behind a nginx reverse proxy w
 Update the Kubernetes configmap to add your stubs then :
 
 ```sh
+# Create the kubernetes configmaps from the mappings folder
+kubectl create configmap wiremock-mapping --from-file=mappings
 kubectl apply -R -f k8s/
 ```
 

@@ -22,7 +22,7 @@ spec:
         - containerPort: 8080
         volumeMounts:
         - name: wiremock-mapping
-          mountPath: /home/wiremock/mappings
+          mountPath: /home/wiremock/__files
         resources:
           requests:
             memory: "1024Mi"
@@ -76,26 +76,18 @@ kind: ConfigMap
 metadata:
   name: wiremock-mapping
 data:
-  static.json: |-
+  accountsummary.json: |-
     {
-    "request": {
-      "method": "GET",
-      "url": "/static"
-      },
-        "response": {
-          "status": 200,
-          "fixedDelayMilliseconds": 50,
-          "jsonBody": {
-            "data": [{
-              "type": "product",
-              "id": "1",
-              "attributes": {
-                "productName": "Raspberry PI",
-                "productDescription": "Best product ever",
-                "price": 42,
-                "stock": 500
-              }
-            }]
-          }
+      "request": {
+    "method": "GET",
+    "url": "/accountsummary"
+    },
+      "response": {
+    "status": 200,
+    "fixedDelayMilliseconds": 2000,
+    "bodyFileName": "res.xml",
+    "headers": {
+      "Content-Type": "application/xml"
         }
       }
+    }
