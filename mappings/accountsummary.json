@@ -1,11 +1,11 @@
 {
-  "request": {
+    "request": {
     "method": "GET",
     "url": "/accountsummary"
-  },
-  "response": {
-    "status": 200,
-    "fixedDelayMilliseconds": 2000,
-    "bodyFileName": "res.xml"
-  }
+    },
+      "response": {
+        "status": 200,
+        "fixedDelayMilliseconds": 2000,
+        "bodyFileName": "res.xml"
+      }
 }
