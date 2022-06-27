@@ -1,0 +1,16 @@
+{
+    "request": {
+    "urlPath": "/api",
+    "queryParameters": {
+        "custID": {
+            "matches": ".*"
+            }
+        },
+    "method": "GET"
+    },
+      "response": {
+        "status": 200,
+        "fixedDelayMilliseconds": 2000,
+        "bodyFileName": "res_{{request.queryParameters.custID}}.xml"
+      }
+}

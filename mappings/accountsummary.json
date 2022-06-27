@@ -1,7 +1,7 @@
 {
     "request": {
     "method": "GET",
-    "url": "/accountsummary"
+    "url": "/accountsummary?wsdl"
     },
       "response": {
         "status": 200,
