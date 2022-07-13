@@ -1,10 +1,10 @@
 {
     "request": {
     "method": "GET",
-    "url": "/summary",
+    "url": "/summary?wsdl",
     "headers" : {
           "SOAPAction" : {
-            "contains" : "http://hdfc.com/sample"
+            "equalTo" : "http://hdfc.com/sample"
           }
     },
     "bodyPatterns" : [ {
@@ -13,7 +13,10 @@
         },
       "response": {
         "status": 200,
-        "fixedDelayMilliseconds": 2000,
-        "bodyFileName": "res.xml"
+        "bodyFileName": "res.xml",
+        "delayDistribution" : {
+        "type" : "fixed",
+        "milliseconds" : 2000
+      }
       }
 }
