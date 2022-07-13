@@ -3,11 +3,11 @@ kind: ConfigMap
 metadata:
   name: wiremock-mapping
 data:
-  static.json: |-
+  static1.json: |-
     {
     "request": {
       "method": "GET",
-      "url": "/static"
+      "url": "/staticpage"
       },
         "response": {
           "status": 200,
@@ -26,11 +26,11 @@ data:
           }
         }
       }
-  dynamic.json: |-
+  dynamic1.json: |-
     {
       "request": {
         "method": "GET",
-        "urlPathPattern": "/dynamic/.*"
+        "urlPathPattern": "/dynamicpage/.*"
       },
       "response": {
         "status": 200,
