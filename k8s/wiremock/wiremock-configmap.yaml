@@ -56,7 +56,7 @@ kind: ConfigMap
 metadata:
   name: wiremock-file
 data:
-  accountsummary.json: |-
+  accntsummary.json: |-
     {
     "request": {
     "method": "GET",
@@ -78,4 +78,3 @@ data:
         "milliseconds" : 2000
       }
       }
-}
