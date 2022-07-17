@@ -1,80 +1,28 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: wiremock-mapping
-data:
-  static.json: |-
-    {
-    "request": {
-    "method": "GET",
-    "url": "/staticpage"
-    },
-    "response": {
-    "status": 200,
-    "fixedDelayMilliseconds": 50,
-    "jsonBody": {
-    "data": [{
-    "type": "product",
-    "id": "1",
-    "attributes": {
-    "productName": "Raspberry PI",
-    "productDescription": "Best product ever",
-    "price": 42,
-    "stock": 500
-    }
-    }]
-    }
-    }
-  dynamic.json: |-
-    {
-    "request": {
-    "method": "GET",
-    "urlPathPattern": "/dynamicpage/.*"
-    },
-    "response": {
-    "status": 200,
-    "fixedDelayMilliseconds": 1000,
-    "transformers": ["response-template"],
-    "jsonBody": {
-    "data": [{
-    "type": "product",
-    "id": "1",
-    "attributes": {
-    "productName": "{{request.pathSegments.[1]}}",
-    "productDescription": "Best product ever",
-    "price": 42,
-    "stock": 500
-    }
-    }]
-    }
-    }
-    }
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
   name: wiremock-file
 data:
   accntsummary.json: |-
     {
-    "request": {
+  "request": {
     "method": "GET",
     "url": "/summary.wsdl",
     "headers": {
-    "SOAPAction": {
-    "equalTo": "http://hdfc.com/sample"
-    }
+      "SOAPAction": {
+        "equalTo": "http://hdfc.com/sample"
+      }
     },
     "bodyPatterns": [{
-    "equalToXml": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:inq=\"http://inquiry.service.dda.appx.cz.fc.ofss.com/\" xmlns:con=\"http://context.app.fc.ofss.com\" xmlns:exc=\"http://exception.infra.fc.ofss.com\" xmlns:dat=\"http://datatype.fc.ofss.com\" xmlns:dto=\"http://dto.common.domain.framework.fc.ofss.com\" xmlns:dom=\"http://domain.framework.fc.ofss.com\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <inq:fetchAccountSummary>\n         <arg0>\n            <con:bankCode>08</con:bankCode>\n            <con:channel>BB11</con:channel>\n            <con:transactionBranch>089999</con:transactionBranch>\n            <con:externalReferenceNo>1101201905</con:externalReferenceNo>\n            <con:userId>DevUser01</con:userId>\n            <con:transactingPartyCode>50000010</con:transactingPartyCode>\n         </arg0>\n         <arg1>\n            <customerId>50236368</customerId>\n         </arg1>\n      </inq:fetchAccountSummary>\n   </soapenv:Body>\n</soapenv:Envelope>"
+      "equalToXml": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:inq=\"http://inquiry.service.dda.appx.cz.fc.ofss.com/\" xmlns:con=\"http://context.app.fc.ofss.com\" xmlns:exc=\"http://exception.infra.fc.ofss.com\" xmlns:dat=\"http://datatype.fc.ofss.com\" xmlns:dto=\"http://dto.common.domain.framework.fc.ofss.com\" xmlns:dom=\"http://domain.framework.fc.ofss.com\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <inq:fetchAccountSummary>\n         <arg0>\n            <con:bankCode>08</con:bankCode>\n            <con:channel>BB11</con:channel>\n            <con:transactionBranch>089999</con:transactionBranch>\n            <con:externalReferenceNo>1101201905</con:externalReferenceNo>\n            <con:userId>DevUser01</con:userId>\n            <con:transactingPartyCode>50000010</con:transactingPartyCode>\n         </arg0>\n         <arg1>\n            <customerId>50236368</customerId>\n         </arg1>\n      </inq:fetchAccountSummary>\n   </soapenv:Body>\n</soapenv:Envelope>"
     }]
-    },
-    "response": {
+  },
+  "response": {
     "status": 200,
     "bodyFileName": "res.xml",
     "delayDistribution": {
-    "type": "fixed",
-    "milliseconds": 2000
+      "type": "fixed",
+      "milliseconds": 2000
     }
-    }
-    }
+  }
+}
