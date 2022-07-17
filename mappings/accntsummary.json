@@ -1,7 +1,7 @@
 {
     "request": {
     "method": "GET",
-    "url": "/summary?wsdl",
+    "url": "/summary.wsdl",
     "headers" : {
           "SOAPAction" : {
             "equalTo" : "http://hdfc.com/sample"
